@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orders</title>
+    <style>
+      /* Set the font family and size for the page */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+
+      /* Set the style for the container div */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Set the style for the user information table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      /* Set the style for table header cells */
+      th {
+        background-color: #2c3e50;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+      }
+
+      /* Set the style for table cells */
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+
+      /* Set the style for table row hover */
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      /* Set the style for the user information headings */
+      h1,
+      h2 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order Management</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Order id</th>
+            <th>Username</th>
+            <th>Items</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <%orders.forEach(function(obj){%>
+                        <td><%=obj.orderid%></td>
+                        <td><%=obj.username%></td>
+                        <td><%=obj.item%></td>
+                        <td>
+                          <form action="/serve/<%=obj.orderid%>" method="POST">
+                            <button type="submit">Served</button>
+                          </form>
+                        </td>
+                      </div>
+                    </tr>
+            <%})%>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
